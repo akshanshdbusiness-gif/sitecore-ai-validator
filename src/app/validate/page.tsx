@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { CSSProperties, FormEvent } from 'react';
 import Link from 'next/link';
 import type { CheckSummary, CheckStatus } from '@/src/lib/checks';
@@ -72,6 +72,20 @@ export default function ValidatePage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<CheckSummary | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // null until the effect below runs client-side — avoids assuming either
+  // way before we can actually check window.location.
+  const [isLocalHost, setIsLocalHost] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // "Local path" only works when the server handling /api/checks is the
+    // same machine as the browser — true for `npm run dev`/`npm start`
+    // locally, never true once this is deployed (e.g. to Vercel). Checking
+    // the browser's own hostname is a reasonable proxy for that, since this
+    // app's client and server are normally co-located.
+    const local = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+    setIsLocalHost(local);
+    setForm((prev) => ({ ...prev, projectSourceType: local ? 'local' : 'github' }));
+  }, []);
 
   function update<K extends keyof FormState>(key: K, value: string) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -167,14 +181,15 @@ export default function ValidatePage() {
               />
               GitHub repo
             </label>
-            <label style={radioLabelStyle}>
+            <label style={isLocalHost === false ? radioLabelDisabledStyle : radioLabelStyle}>
               <input
                 type="radio"
                 name="projectSourceType"
                 checked={form.projectSourceType === 'local'}
+                disabled={isLocalHost === false}
                 onChange={() => update('projectSourceType', 'local')}
               />
-              Local path
+              Local path{isLocalHost === false ? ' (unavailable on this deployment)' : ''}
             </label>
           </div>
 
@@ -182,8 +197,8 @@ export default function ValidatePage() {
             <>
               <p style={hintTextStyle}>
                 Works from anywhere this app is deployed — reads your project&apos;s source straight from
-                GitHub&apos;s API instead of the local disk. Try it with this project&apos;s own public repo:
-                owner <code>akshanshdbusiness-gif</code>, repo{' '}
+                GitHub&apos;s API instead of the local disk. Want to see a flagged result before trying your
+                own project? Owner <code>akshanshdbusiness-gif</code>, repo{' '}
                 <code>sitecore-ai-validator</code> ({' '}
                 <a
                   href="https://github.com/akshanshdbusiness-gif/sitecore-ai-validator"
@@ -193,7 +208,9 @@ export default function ValidatePage() {
                 >
                   view on GitHub
                 </a>
-                ).
+                ) will return <strong>fail</strong> — it&apos;s this tool&apos;s own repo, which
+                intentionally includes a broken test fixture under <code>scripts/fixtures/</code> used to
+                verify the audit logic itself, not a real Sitecore project.
               </p>
               <Field
                 label="Repo owner"
@@ -227,7 +244,7 @@ export default function ValidatePage() {
               value={form.localProjectPath}
               onChange={(v) => update('localProjectPath', v)}
               placeholder="C:\path\to\your\nextjs-project"
-              hint="Only works when this app runs on the same machine as the checkout — a deployed instance has no access to your disk. Use GitHub repo mode for a hosted deployment (e.g. github.com/akshanshdbusiness-gif/sitecore-ai-validator)."
+              hint="Absolute path to a Next.js project's root, checked out on this machine (the one running npm run dev right now)."
             />
           )}
         </fieldset>
@@ -403,6 +420,12 @@ const radioLabelStyle: CSSProperties = {
   gap: 6,
   fontSize: 13,
   color: colors.textSecondary,
+};
+
+const radioLabelDisabledStyle: CSSProperties = {
+  ...radioLabelStyle,
+  opacity: 0.5,
+  cursor: 'not-allowed',
 };
 
 const hintTextStyle: CSSProperties = {
