@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import Link from 'next/link';
 import { colors } from '@/src/lib/theme';
 
 /**
@@ -18,16 +19,28 @@ export function SitecoreAILogo({ height = 26 }: { height?: number }) {
   );
 }
 
+const SITECORE_PLATFORM_URL = 'https://www.sitecore.com/platform';
+
 /**
- * Full lockup: [ SitecoreAI logo ] | Validator — the SitecoreAI brand and the
- * "Validator" app descriptor kept as visually separate elements.
+ * Full lockup: [ SitecoreAI logo ] | Validator — kept as visually separate,
+ * separately-linked elements. "SitecoreAI" links out to Sitecore's own
+ * platform page; "Validator" links back to this app's homepage.
  */
 export function LogoLockup({ height = 26 }: { height?: number }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: Math.round(height * 0.5) }}>
-      <SitecoreAILogo height={height} />
+      <a
+        href={SITECORE_PLATFORM_URL}
+        target="_blank"
+        rel="noreferrer"
+        style={{ display: 'block', lineHeight: 0 }}
+      >
+        <SitecoreAILogo height={height} />
+      </a>
       <span style={{ width: 1, height: Math.round(height * 0.72), background: colors.borderStrong }} aria-hidden />
-      <span style={descriptorStyle(height)}>Validator</span>
+      <Link href="/" style={descriptorStyle(height)}>
+        Validator
+      </Link>
     </div>
   );
 }
@@ -40,5 +53,6 @@ function descriptorStyle(height: number): CSSProperties {
     textTransform: 'uppercase',
     color: colors.teal,
     whiteSpace: 'nowrap',
+    textDecoration: 'none',
   };
 }
