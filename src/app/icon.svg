@@ -1,78 +1,18 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FF1F38" />
-      <stop offset="60%" stop-color="#8629FF" />
-      <stop offset="100%" stop-color="#4300AD" />
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#256EFF" />
+      <stop offset="100%" stop-color="#00E6A8" />
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="14" fill="#0D0F1A" />
-  <circle cx="32.00" cy="32.00" r="2.40" fill="url(#g)" />
-  <circle cx="27.79" cy="36.95" r="2.11" fill="url(#g)" />
-  <circle cx="25.50" cy="31.80" r="2.11" fill="url(#g)" />
-  <circle cx="28.11" cy="26.79" r="2.11" fill="url(#g)" />
-  <circle cx="33.64" cy="25.71" r="2.11" fill="url(#g)" />
-  <circle cx="37.94" cy="29.36" r="2.11" fill="url(#g)" />
-  <circle cx="37.77" cy="35.00" r="2.11" fill="url(#g)" />
-  <circle cx="33.25" cy="38.38" r="2.11" fill="url(#g)" />
-  <circle cx="26.12" cy="21.54" r="1.86" fill="url(#g)" />
-  <circle cx="31.24" cy="20.02" r="1.86" fill="url(#g)" />
-  <circle cx="36.51" cy="20.88" r="1.86" fill="url(#g)" />
-  <circle cx="40.89" cy="23.94" r="1.86" fill="url(#g)" />
-  <circle cx="43.51" cy="28.59" r="1.86" fill="url(#g)" />
-  <circle cx="43.85" cy="33.92" r="1.86" fill="url(#g)" />
-  <circle cx="41.84" cy="38.87" r="1.86" fill="url(#g)" />
-  <circle cx="37.88" cy="42.46" r="1.86" fill="url(#g)" />
-  <circle cx="32.76" cy="43.98" r="1.86" fill="url(#g)" />
-  <circle cx="27.49" cy="43.12" r="1.86" fill="url(#g)" />
-  <circle cx="23.11" cy="40.06" r="1.86" fill="url(#g)" />
-  <circle cx="20.49" cy="35.41" r="1.86" fill="url(#g)" />
-  <circle cx="20.15" cy="30.08" r="1.86" fill="url(#g)" />
-  <circle cx="22.16" cy="25.13" r="1.86" fill="url(#g)" />
-  <circle cx="49.28" cy="29.24" r="1.61" fill="url(#g)" />
-  <circle cx="49.29" cy="34.72" r="1.61" fill="url(#g)" />
-  <circle cx="47.60" cy="39.93" r="1.61" fill="url(#g)" />
-  <circle cx="44.39" cy="44.36" r="1.61" fill="url(#g)" />
-  <circle cx="39.96" cy="47.58" r="1.61" fill="url(#g)" />
-  <circle cx="34.76" cy="49.28" r="1.61" fill="url(#g)" />
-  <circle cx="29.28" cy="49.29" r="1.61" fill="url(#g)" />
-  <circle cx="24.07" cy="47.60" r="1.61" fill="url(#g)" />
-  <circle cx="19.64" cy="44.39" r="1.61" fill="url(#g)" />
-  <circle cx="16.42" cy="39.96" r="1.61" fill="url(#g)" />
-  <circle cx="14.72" cy="34.76" r="1.61" fill="url(#g)" />
-  <circle cx="14.71" cy="29.28" r="1.61" fill="url(#g)" />
-  <circle cx="16.40" cy="24.07" r="1.61" fill="url(#g)" />
-  <circle cx="19.61" cy="19.64" r="1.61" fill="url(#g)" />
-  <circle cx="24.04" cy="16.42" r="1.61" fill="url(#g)" />
-  <circle cx="29.24" cy="14.72" r="1.61" fill="url(#g)" />
-  <circle cx="34.72" cy="14.71" r="1.61" fill="url(#g)" />
-  <circle cx="39.93" cy="16.40" r="1.61" fill="url(#g)" />
-  <circle cx="44.36" cy="19.61" r="1.61" fill="url(#g)" />
-  <circle cx="47.58" cy="24.04" r="1.61" fill="url(#g)" />
-  <circle cx="27.52" cy="54.56" r="1.40" fill="url(#g)" />
-  <circle cx="22.25" cy="52.83" r="1.40" fill="url(#g)" />
-  <circle cx="17.55" cy="49.89" r="1.40" fill="url(#g)" />
-  <circle cx="13.69" cy="45.92" r="1.40" fill="url(#g)" />
-  <circle cx="10.89" cy="41.13" r="1.40" fill="url(#g)" />
-  <circle cx="9.32" cy="35.81" r="1.40" fill="url(#g)" />
-  <circle cx="9.06" cy="30.27" r="1.40" fill="url(#g)" />
-  <circle cx="10.14" cy="24.83" r="1.40" fill="url(#g)" />
-  <circle cx="12.49" cy="19.81" r="1.40" fill="url(#g)" />
-  <circle cx="15.98" cy="15.50" r="1.40" fill="url(#g)" />
-  <circle cx="20.39" cy="12.14" r="1.40" fill="url(#g)" />
-  <circle cx="25.48" cy="9.94" r="1.40" fill="url(#g)" />
-  <circle cx="30.95" cy="9.02" r="1.40" fill="url(#g)" />
-  <circle cx="36.48" cy="9.44" r="1.40" fill="url(#g)" />
-  <circle cx="41.75" cy="11.17" r="1.40" fill="url(#g)" />
-  <circle cx="46.45" cy="14.11" r="1.40" fill="url(#g)" />
-  <circle cx="50.31" cy="18.08" r="1.40" fill="url(#g)" />
-  <circle cx="53.11" cy="22.87" r="1.40" fill="url(#g)" />
-  <circle cx="54.68" cy="28.19" r="1.40" fill="url(#g)" />
-  <circle cx="54.94" cy="33.73" r="1.40" fill="url(#g)" />
-  <circle cx="53.86" cy="39.17" r="1.40" fill="url(#g)" />
-  <circle cx="51.51" cy="44.19" r="1.40" fill="url(#g)" />
-  <circle cx="48.02" cy="48.50" r="1.40" fill="url(#g)" />
-  <circle cx="43.61" cy="51.86" r="1.40" fill="url(#g)" />
-  <circle cx="38.52" cy="54.06" r="1.40" fill="url(#g)" />
-  <circle cx="33.05" cy="54.98" r="1.40" fill="url(#g)" />
+  <text
+    x="32"
+    y="41"
+    text-anchor="middle"
+    font-family="ui-monospace, Menlo, Consolas, monospace"
+    font-size="26"
+    font-weight="700"
+    fill="url(#g)"
+  >SV</text>
 </svg>
