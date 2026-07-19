@@ -21,6 +21,10 @@ export function Footer() {
         ))}
       </nav>
       <p style={copyStyle}>© {new Date().getFullYear()} SitecoreAI Validator</p>
+      <p style={disclaimerStyle}>
+        Sitecore is a registered trademark of Sitecore Corporation A/S. SitecoreAI Validator is an
+        independent community project and is not affiliated with, sponsored by, or endorsed by Sitecore.
+      </p>
     </footer>
   );
 }
@@ -49,4 +53,12 @@ const copyStyle: CSSProperties = {
   fontSize: 12,
   color: colors.textMuted,
   margin: 0,
+};
+
+const disclaimerStyle: CSSProperties = {
+  fontSize: 11,
+  color: colors.textMuted,
+  margin: '6px 0 0',
+  lineHeight: 1.5,
+  maxWidth: 640,
 };
