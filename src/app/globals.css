@@ -1,0 +1,33 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0d0f1a;
+  color: #f5f6fa;
+  font-family:
+    var(--font-manrope),
+    Manrope,
+    system-ui,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: rgba(245, 246, 250, 0.08);
+  color: #00d4ff;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
