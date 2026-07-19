@@ -1,74 +1,44 @@
 import type { CSSProperties } from 'react';
-import { colors, gradients } from '@/src/lib/theme';
+import { colors } from '@/src/lib/theme';
 
-export function LogoMark({ size = 40 }: { size?: number }) {
+/**
+ * The official SitecoreAI logo (mark + wordmark), served from
+ * public/logo-sitecoreai.svg. The only edit to the official asset is
+ * recoloring the near-black wordmark text to light so it reads on the app's
+ * dark background — the dot mark and "AI" gradients are untouched.
+ */
+export function SitecoreAILogo({ height = 26 }: { height?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="logoMarkGradient" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor={colors.blue} />
-          <stop offset="55%" stopColor={colors.cyan} />
-          <stop offset="100%" stopColor={colors.purple} />
-        </linearGradient>
-      </defs>
-      <path
-        d="M20 2.5L36 11.25V28.75L20 37.5L4 28.75V11.25L20 2.5Z"
-        stroke="url(#logoMarkGradient)"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      <circle cx="17" cy="18" r="6.5" stroke="url(#logoMarkGradient)" strokeWidth="2" />
-      <line
-        x1="21.6"
-        y1="22.6"
-        x2="27.5"
-        y2="28.5"
-        stroke="url(#logoMarkGradient)"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M14 18.2l2 2 3.8-4"
-        stroke={colors.teal}
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/logo-sitecoreai.svg"
+      alt="SitecoreAI"
+      style={{ height, width: 'auto', display: 'block' }}
+    />
   );
 }
 
-export function Wordmark({ size = 22 }: { size?: number }) {
-  const nameStyle: CSSProperties = { fontSize: size, fontWeight: 800, color: colors.textPrimary };
-  const aiStyle: CSSProperties = {
-    background: gradients.accentText,
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-  };
-  const subStyle: CSSProperties = {
-    fontSize: Math.round(size * 0.42),
+/**
+ * Full lockup: [ SitecoreAI logo ] | Validator — the SitecoreAI brand and the
+ * "Validator" app descriptor kept as visually separate elements.
+ */
+export function LogoLockup({ height = 26 }: { height?: number }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: Math.round(height * 0.5) }}>
+      <SitecoreAILogo height={height} />
+      <span style={{ width: 1, height: Math.round(height * 0.72), background: colors.borderStrong }} aria-hidden />
+      <span style={descriptorStyle(height)}>Validator</span>
+    </div>
+  );
+}
+
+function descriptorStyle(height: number): CSSProperties {
+  return {
+    fontSize: Math.round(height * 0.44),
     fontWeight: 700,
-    letterSpacing: '0.22em',
+    letterSpacing: '0.16em',
+    textTransform: 'uppercase',
     color: colors.teal,
+    whiteSpace: 'nowrap',
   };
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.05, gap: 2 }}>
-      <span style={nameStyle}>
-        Sitecore
-        <span style={aiStyle}>AI</span>
-      </span>
-      <span style={subStyle}>VALIDATOR</span>
-    </div>
-  );
-}
-
-export function LogoLockup({ markSize = 40, textSize = 22 }: { markSize?: number; textSize?: number }) {
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-      <LogoMark size={markSize} />
-      <Wordmark size={textSize} />
-    </div>
-  );
 }

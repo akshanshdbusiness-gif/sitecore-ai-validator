@@ -31,7 +31,7 @@ export default function DocsPage() {
         ← Back to validator
       </Link>
       <div style={{ margin: '16px 0 20px' }}>
-        <LogoLockup markSize={32} textSize={18} />
+        <LogoLockup height={26} />
       </div>
       <h1 style={{ fontSize: 22, margin: '0 0 4px', color: colors.textPrimary }}>How the checks work</h1>
       <p style={{ color: colors.textSecondary, marginBottom: 24, lineHeight: 1.5 }}>

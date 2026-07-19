@@ -6,7 +6,7 @@ export default function PrivacyPage() {
   return (
     <main style={mainStyle}>
       <div style={{ marginBottom: 20 }}>
-        <LogoLockup markSize={32} textSize={18} />
+        <LogoLockup height={26} />
       </div>
       <h1 style={h1Style}>Privacy policy</h1>
       <p style={pStyle}>

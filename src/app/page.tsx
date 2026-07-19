@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <main style={mainStyle}>
       <section style={heroStyle}>
-        <LogoLockup markSize={56} textSize={30} />
+        <LogoLockup height={40} />
         <p style={taglineStyle}>Validate. Assure. Publish with confidence.</p>
         <p style={purposeStyle}>
           SitecoreAI Validator ensures content quality, compliance and accuracy, helping teams validate,
